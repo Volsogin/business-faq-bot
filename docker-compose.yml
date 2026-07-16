@@ -1,0 +1,9 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    # база знаний примонтирована с хоста — можно править YAML и делать
+    # `docker compose restart bot` без пересборки образа
+    volumes:
+      - ./data:/app/data
